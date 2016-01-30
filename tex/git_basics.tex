@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{caption}
+
+
+\begin{document}
+
+\section*{GitHub Basics}
+
+The following are basic commands and their usage for inital GitHub usage.
+\\
+Basic Commands:
+\begin{itemize}
+\item{git clone - Clone a repository into a new directory.}
+\item{git add - Add file contents to the index (adds file to index so changes are tracked).}
+\item{git commit - Record changes to the repository (these changes are local to the machine currently working on) }
+\item{git push - Update remote refs along with associated objects (uploads local commits to remote repository)}
+\item{git pull - Fetch from and integrate with another repository or a local branch (downloads from remote repository any changes that have happened since last push). }
+\end{itemize}
+In the following examples username and repository are placeholders for the github username and remote repository that is being used.
+Command Usage in public repository: \\
+
+
+
+
+\begin{lstlisting}[frame=single, language=bash, width=6.5in]
+  $ git clone https://github.com/username/repository.git
+    remote: Counting objects: 4, done.
+    remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 4
+    Unpacking objects: 100% (4/4), done.
+    Checking connectivity... done.
+
+  $ git add file1 file2 file3
+  $ git commit -m "Reason for commit"
+  1 file changed, 1 insertion(+)
+  create mode 100644 example
+
+  $ git push origin master
+  Username for 'https://github.com': username
+	Password for 'https://username@github.com': 
+	Counting objects: 3, done.
+	Delta compression using up to 4 threads.
+	Compressing objects: 100% (2/2), done.
+	Writing objects: 100% (3/3), 325 bytes | 0 bytes/s, done.
+	Total 3 (delta 0), reused 0 (delta 0)
+	To https://github.com/username/repository.git
+  70b8f72..38d3471  master -> master
+
+  $ git pull
+  Already up-to-date.
+\end{lstlisting}
+
+
+
+
+
+
+
+If there are commits that you do not have then something similar to the following will be displayed:.
+\begin{lstlisting}[frame=single,language=bash]
+  $ git pull
+  remote: Counting objects: 3, done.
+  remote: Compressing objects: 100% (2/2), done.
+  Unpacking objects: 100% (3/3), done.
+  remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+  From https://github.com/username/repository
+     38d3471..f6832db  master     -> origin/master
+  Updating 38d3471..f6832db
+  Fast-forward
+   example2 | 1 +
+   1 file changed, 1 insertion(+)
+   create mode 100644 example2
+\end{lstlisting}
+Command Usage using ssh keys:
+
+\end{document}
